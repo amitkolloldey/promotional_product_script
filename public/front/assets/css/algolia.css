@@ -1,0 +1,327 @@
+@import 'https://fonts.googleapis.com/css?family=Montserrat:400,700';
+
+.aa-input-container {
+    display: inline-block;
+    position: relative;
+}
+
+.aa-input-search {
+    width: 300px;
+    padding: 12px 28px 12px 12px;
+    border: 2px solid #e4e4e4;
+    border-radius: 4px;
+    -webkit-transition: .2s;
+    transition: .2s;
+    font-family: "Montserrat", sans-serif;
+    box-shadow: 4px 4px 0 rgba(241, 241, 241, 0.35);
+    font-size: 11px;
+    box-sizing: border-box;
+    color: #2C3128;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.aa-input-search::-webkit-search-decoration, .aa-input-search::-webkit-search-cancel-button,
+.aa-input-search::-webkit-search-results-button, .aa-input-search::-webkit-search-results-decoration {
+    display: none;
+}
+
+.aa-input-search:focus {
+    outline: 0;
+    border-color: #3a96cf;
+    box-shadow: 4px 4px 0 rgba(58, 150, 207, 0.1);
+}
+
+.aa-input-icon {
+    height: 16px;
+    width: 16px;
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    fill: #e4e4e4;
+    pointer-events: none;
+}
+
+.aa-hint {
+    color: #e4e4e4;
+}
+
+.aa-dropdown-menu {
+    background-color: #fff;
+    border: 2px solid rgba(228, 228, 228, 0.6);
+    border-top-width: 0;
+    font-family: "Montserrat", sans-serif;
+    width: 300px;
+    margin-top: 10px;
+    box-shadow: 4px 4px 0 rgba(241, 241, 241, 0.35);
+    font-size: 11px;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.aa-suggestion {
+    padding: 6px 12px;
+    cursor: pointer;
+    -webkit-transition: .2s;
+    transition: .2s;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.aa-suggestion:hover, .aa-suggestion.aa-cursor {
+    background-color: rgba(241, 241, 241, 0.35);
+}
+
+.aa-suggestion > div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+}
+
+.aa-suggestion span:first-child {
+    color: #2C3128;
+}
+
+.aa-suggestion span:last-child {
+    text-transform: uppercase;
+    color: #a9a9a9;
+}
+
+.aa-suggestion img {
+    max-width: 50px;
+    margin-right: 10px;
+}
+
+.aa-suggestions-category {
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(228, 228, 228, 0.6);
+    border-top: 1px solid rgba(228, 228, 228, 0.6);
+    padding: 5px;
+    color: #a9a9a9;
+    text-align: left;
+}
+
+.aa-suggestion span:first-child em, .aa-suggestion span:last-child em {
+    font-weight: 700;
+    font-style: normal;
+    background-color: rgba(58, 150, 207, 0.1);
+    padding: 2px 0 2px 2px;
+}
+
+.aa-dropdown-menu > div {
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+}
+
+.aa-empty {
+    padding: 5px;
+}
+
+span.algolia-autocomplete {
+    width: 100%;
+}
+
+input#aa-search-input {
+    width: 100%;
+    font-weight: bold;
+}
+
+span#algolia-autocomplete-listbox-0 {
+    width: 100%;
+}
+
+div#aa-input-container {
+    width: 100%;
+}
+
+input.aa-input-search.aa-hint {
+    width: 100%;
+    padding: 20px;
+    line-height: 20px;
+}
+
+input#aa-search-input {
+    font-size: 14px;
+}
+
+.algolia-result {
+    color: #000;
+}
+
+.aa-suggestion span:last-child {
+    color: #000;
+    padding: 5px 0;
+    font-size: 14px;
+}
+
+.aa-dataset-1 {
+    padding: 10px;
+    font-size: 16px;
+    color: #000;
+}
+
+ul.ais-pagination {
+    border: none;
+}
+
+
+li.ais-pagination--item.ais-pagination--item__page.ais-pagination--item__active a {
+    background: #00BAF2;
+    border: none;
+    width: auto;
+    height: auto;
+    color: #fff;
+    margin: 0;
+    box-shadow: none;
+}
+
+li.ais-pagination--item.ais-pagination--item__page.ais-pagination--item__active {
+    background: no-repeat;
+}
+
+li.ais-pagination--item.ais-pagination--item__page .ais-pagination--link {
+    width: auto;
+    height: auto;
+    padding: 10px 15px !important;
+    line-height: initial;
+}
+
+.ais-pagination--item {
+    width: auto !important;
+    height: auto !important;
+    padding: 0 !important;
+}
+
+li.ais-RefinementList-item {
+    display: inline-block;
+    text-align: left;
+}
+
+div#refinement-list, #refinement-list-color {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+input.ais-SearchBox-input {
+    padding-left: 30px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+button.ais-RefinementList-showMore {
+    padding: 8px;
+    font-size: 14px;
+    border: cadetblue;
+    background: #6A6C77;
+    border-radius: 0;
+}
+
+.rheostat-progress {
+    background-color: #6A6C77 !important;
+}
+
+.ais-RangeSlider .rheostat-handle {
+    border: none;
+    background: #00BAF2;
+}
+
+.rheostat-background {
+    border: none !important;
+}
+
+.rheostat-value {
+    font-size: 12px !important;
+    font-weight: bold;
+}
+
+li span.ais-RefinementList-labelText {
+    font-size: 16px;
+}
+
+li input.ais-RefinementList-checkbox {
+    margin: 10px 5px;
+}
+
+li span.ais-RefinementList-count {
+    font-size: 12px;
+    background: #00BAF2;
+    color: #fff;
+    opacity: .8;
+}
+
+label.ais-RefinementList-label {
+    margin: 0;
+}
+
+span.ais-Stats-text {
+    font-size: 12px !important;
+    font-weight: bold;
+}
+
+button.ais-ClearRefinements-button {
+    padding: 10px;
+    font-size: 14px;
+    background: #6A6C77;
+    border-radius: 0;
+    margin-top: 10px;
+}
+
+.item.live_search_bar {
+    padding: 30px;
+    background: #fff;
+}
+
+input#aa-search-input {
+    padding: 10px;
+    font-weight: normal;
+}
+
+span#algolia-autocomplete-listbox-0 {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+input.ais-SearchBox-input {
+    border-radius: 0;
+    border: 1px solid #ddd;
+    color: #2C3128;
+    font-weight: normal;
+    opacity: 1;
+    box-shadow: none;
+}
+
+input.ais-SearchBox-input:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+li span.ais-RefinementList-labelText {
+    font-weight: normal;
+}
+
+label.ais-RefinementList-label {
+    margin-right: 15px;
+}
+
+.ais-Pagination-link {
+    padding: .25rem .4rem !important;
+}

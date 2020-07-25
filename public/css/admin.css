@@ -1,0 +1,187 @@
+/*
+Admin Panel Styles
+*/
+
+input[type="search"] {
+    border: 1px solid #ddd;
+}
+
+.paginate_button {
+    padding: 5px 10px;
+    cursor: pointer;
+    background: #ddd;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+.paginate_button.current {
+    background: #007BFF;
+    color: #fff;
+}
+
+.alert ul {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+}
+
+button.text-danger {
+    background: none;
+    border: none;
+    display: inline-block;
+}
+
+#dataTable1 a {
+    padding: 5px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.table td,
+.table th {
+    vertical-align: middle !important;
+}
+
+button.btn.btn-danger.delete_selected,
+.btn.btn-info.delete_selected {
+    font-size: 12px;
+    padding: 5px;
+    display: inline-block;
+}
+
+button.btn.btn-danger.delete_selected,
+.btn.btn-info.delete_selected {
+    font-size: 12px;
+    padding: 5px;
+    display: inline-block;
+    margin-bottom: 20px;
+    margin-left: 8px;
+}
+
+a.nav-link {
+    padding: 5px;
+    font-size: 12px;
+}
+
+.sidebar-dark-primary {
+    background-color: #2C3128;
+}
+
+.bg-dark {
+    background-color: #6A6C77 !important;
+}
+
+a.btn.btn-danger.dropdown-item:hover {
+    color: #000 !important;
+}
+
+#product_tabs a.nav-link,
+#category_tabs a.nav-link {
+    padding: 10px;
+    font-size: 16px;
+}
+
+.panel-heading a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.panel.panel-primary {
+    background: #000;
+    border-color: #000;
+}
+
+.panel-primary > .panel-heading {
+    background: #000 !important;
+}
+
+.form-group.width-100 {
+    width: 100%;
+}
+
+div#dataTable1_filter {
+    float: right;
+}
+
+div#dataTable1_length {
+    float: left;
+}
+
+div#dataTable1_paginate {
+    float: right;
+}
+
+div#dataTable1_info {
+    float: left;
+}
+
+.card .row form {
+    width: 100%;
+    display: contents;
+}
+
+span.pending {
+    color: #E28D36;
+}
+
+div#order ul {
+    padding: 0;
+    list-style: none;
+}
+
+#order ul li span:first-child {
+    margin-right: 10px;
+    font-weight: bold;
+    display: block;
+}
+
+td.tick_cross i {
+    font-weight: 100;
+    font-size: 12px;
+}
+
+td.tick_cross {
+    text-align: center;
+}
+
+.dataTables_wrapper p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.dataTables_wrapper img {
+    width: 50px;
+}
+
+.dataTables_wrapper td {
+    font-size: 14px;
+}
+
+.dataTables_wrapper th {
+    font-size: 14px;
+}
+
+span.green {
+    color: green;
+}
+
+span.red {
+    color: red;
+}
+
+span.orange {
+    color: orange;
+}
+
+.custom-control-label {
+    cursor: pointer;
+}
+
+.all_permissions {
+    padding: 5px;
+    background: #f1f1f1;
+}
+.all_permissions .custom-control.custom-switch {
+    width: 300px;
+}

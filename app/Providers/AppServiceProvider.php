@@ -122,7 +122,7 @@ class AppServiceProvider extends ServiceProvider
                     'Coffee Plungers',
                     'Coin Banks',
                     'Compendiums',
-                    'Confectionery',
+                    'Confectionary',
                 ],
                 'D' => [
                     'Desk & Monitor',

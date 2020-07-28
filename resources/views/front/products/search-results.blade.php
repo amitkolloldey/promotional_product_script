@@ -102,16 +102,17 @@
                     templates: {
                         empty: 'No Product Found!',
                         item: function (item) {
-
-
+                            let image_src = item.main_image !== 'no_image.png' ? '{{config("app.url")}}' + '/files/23/Photos/Products/' + item.manufacturer_key + '/' + item.main_image : '{{config("app.url")}}' + '/files/23/Photos/no_image.png'
+                            const image_alt = item.name
+                            const product_link = '{{config("app.url")}}' + /product/ + item.slug
                             const markup = `<div>
                                                 <div class="item">
                                                     <div class="products">
                                                         <div class="product">
                                                             <div class="product-image">
                                                                 <div class="image">
-                                                                    <a href="{{config("app.url")}}/product/${item.slug}">
-                                                                        <img src="{{config("app.url")}}/public/files/23/Photos/Products/${item.manufacturer_key}/${item.main_image}" alt="${item.name}">
+                                                                    <a href="${product_link}">
+                                                                        <img src="${image_src}" alt="${image_alt}">
                                                                     </a>
                                                                 </div>
                                                 </div>

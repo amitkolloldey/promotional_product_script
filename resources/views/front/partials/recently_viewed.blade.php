@@ -18,8 +18,13 @@
                                                         <div class="product-image">
                                                             <div class="image">
                                                                 <a href="{{route('product_show',$product['slug'])}}">
-                                                                    <img src="{{asset('files/23/Photos/Products/').'/'.$product['manufacturer_key'].'/'.$product['main_image']}}"
-                                                                         alt="{{$product['name']}}">
+                                                                    @if (isset($product['main_image']) && $product['main_image'] != "no_image.png")
+                                                                        <img src="{{asset('files/23/Photos/Products/').'/'.$product['manufacturer_key'].'/'.$product['main_image']}}"
+                                                                             alt="{{$product['name']}}">
+                                                                    @else
+                                                                        <img src="{{asset('files/23/Photos/no_image.png')}}"
+                                                                             alt="{{$product['name']}}">
+                                                                    @endif
                                                                 </a>
                                                             </div>
                                                         </div>

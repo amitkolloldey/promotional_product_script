@@ -191,9 +191,10 @@
                 displayKey: 'name',
                 templates: {
                     suggestion: function (suggestion) {
+                        let image_src = suggestion.main_image !== 'no_image.png' ? '{{config("app.url")}}' + '/files/23/Photos/Products/' + suggestion.manufacturer_key + '/' + suggestion.main_image : '{{config("app.url")}}' + '/files/23/Photos/no_image.png' 
                         const markup = `<div class="algolia-result">
                             <span>
-                            <img src="{{config('app.url')}}/files/23/Photos/Products/${suggestion.manufacturer_key}/${suggestion.main_image}" class="algolia-thumb">
+                            <img src="${image_src}" class="algolia-thumb">
                                 ${suggestion._highlightResult.name.value}
                             </span>
                         </div>

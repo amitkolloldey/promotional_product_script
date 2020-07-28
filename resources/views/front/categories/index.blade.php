@@ -153,12 +153,12 @@
                                                                 <div class="product">
                                                                     <div class="product-image">
                                                                         <div class="image">
-                                                                            <a href="{{config('app.url').'/product/'.$product['slug']}}">
-                                                                                @if (isset($product['main_image']))
+                                                                            <a href="{{route('product_show',$product['slug'])}}">
+                                                                                @if (isset($product['main_image']) && $product['main_image'] != "no_image.png")
                                                                                     <img src="{{asset('files/23/Photos/Products/').'/'.$product['manufacturer_key'].'/'.$product['main_image']}}"
                                                                                          alt="{{$product['name']}}">
                                                                                 @else
-                                                                                    <img src="{{asset('files/23/Photos/Products/no_image.png')}}"
+                                                                                    <img src="{{asset('files/23/Photos/no_image.png')}}"
                                                                                          alt="{{$product['name']}}">
                                                                                 @endif
                                                                             </a>

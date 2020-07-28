@@ -172,7 +172,10 @@ class ProductController extends Controller
                     'name',
                     'slug',
                     'product_type',
+                    'dimensions',
                     'product_code',
+                    'product_item_size',
+                    'print_area',
                     'dimensions',
                     'main_image',
                     'short_desc',
@@ -277,7 +280,10 @@ class ProductController extends Controller
                                         </div>
                                     ')
             ->addColumn('main_image', function (Product $product) {
-                return '<img class="table_thumb" src="' . asset('files/23/Photos/Products/') . '/' . $product->manufacturer_key . '/' . $product->main_image . '">';
+                if(isset($product->main_image) && $product->main_image != "no_image.png"){
+                    return '<img class="table_thumb" src="' . asset('files/23/Photos/Products/') . '/' . $product->manufacturer_key . '/' . $product->main_image . '">';
+                }
+                return '<img class="table_thumb" src="' . asset('files/23/Photos/no_image.png').'">';
             })
             ->addColumn('categories', function (Product $product) {
                 $main = isset($product->categories[0]) ? '<p class=\'badge badge-primary\'>' . $product->categories[0]->name . '<p>' : '';

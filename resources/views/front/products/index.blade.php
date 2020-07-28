@@ -35,7 +35,7 @@
             </div><!-- /.breadcrumb-inner -->
         </div><!-- /.container -->
     </div><!-- /.breadcrumb -->
-     
+
     <div class="container">
         <div class="row single-product">
             @if(auth()->check() && !auth()->user()->email_verified_at)
@@ -48,11 +48,13 @@
                                         <p>A fresh verification link has been sent to your email address.</p>
                                     </div>
                                 @endif
-            
-                                <p>Before proceeding, please check your email for a verification link. If you did not receive the email, <a href="{{ route('verification.resend') }}"
-                                                                                 onclick="event.preventDefault(); document.getElementById('verification-form').submit();">{{ __('click here to request another') }}</a>.</p>
-            
-            
+
+                                <p>Before proceeding, please check your email for a verification link. If you did not
+                                    receive the email, <a href="{{ route('verification.resend') }}"
+                                                          onclick="event.preventDefault(); document.getElementById('verification-form').submit();">{{ __('click here to request another') }}</a>.
+                                </p>
+
+
                                 <form id="verification-form" action="{{ route('verification.resend') }}" method="POST"
                                       style="display: none;">
                                     @csrf
@@ -100,12 +102,20 @@
                                         $count = 3
                                     @endphp
                                     @foreach($product['attributes'] as $attribute)
-                                        <div class="item">
-                                            <a data-lightbox="image-1" data-title="{{$attribute['name']}}"
-                                               href="{{asset('files/23/Photos/Products/').'/'.$product['manufacturer_key'].'/'.$attribute['image']}}">
-                                                {{$attribute['name']}}
-                                            </a>
-                                        </div>
+                                        @if(($attribute['image'] != "no_image.png"))
+                                            <div class="item">
+                                                <a data-lightbox="image-1" data-title="{{$attribute['name']}}"
+                                                   href="{{asset('files/23/Photos/Products/').'/'.$product['manufacturer_key'].'/'.$attribute['image']}}">
+                                                    {{$attribute['name']}}
+                                                </a>
+                                            </div>
+                                        @else
+                                            <div class="item">
+                                                <span class="pro_color_name">
+                                                    {{$attribute['name']}}
+                                                </span>
+                                            </div>
+                                        @endif
                                         @php
                                             $count++
                                         @endphp
@@ -113,7 +123,7 @@
                                 </div>
                                 <div class="product-item-holder size-big single-product-gallery small-gallery">
                                     <div id="owl-single-product">
-                                        @if(isset($product['main_image']))
+                                        @if(isset($product['main_image']) && ($product['main_image'] != "no_image.png"))
                                             <div class="single-product-gallery-item" id="slide1">
                                                 <a data-lightbox="image-1" data-title="{{$product['name']}}"
                                                    href="{{asset('files/23/Photos/Products/').'/'.$product['manufacturer_key'].'/'.$product['main_image']}}">
@@ -122,8 +132,16 @@
                                                          data-echo="{{asset('files/23/Photos/Products/').'/'.$product['manufacturer_key'].'/'.$product['main_image']}}"/>
                                                 </a>
                                             </div><!-- /.single-product-gallery-item -->
+                                        @else
+                                            <div class="single-product-gallery-item" id="slide1">
+                                                <a
+                                                   href="#">
+                                                    <img class="img-responsive" alt="{{$product['name']}}"
+                                                         src="{{asset('files/23/Photos/no_image.png')}}"/>
+                                                </a>
+                                            </div><!-- /.single-product-gallery-item -->
                                         @endif
-                                        @if(isset($product['alternative_image']))
+                                        @if(isset($product['alternative_image']) && ($product['alternative_image'] != "no_image.png"))
                                             <div class="single-product-gallery-item" id="slide2">
                                                 <a data-lightbox="image-1" data-title="{{$product['name']}}"
                                                    href="{{asset('files/23/Photos/Products/').'/'.$product['manufacturer_key'].'/'.$product['alternative_image']}}">
@@ -137,16 +155,18 @@
                                             $count = 3
                                         @endphp
                                         @foreach($product['attributes'] as $attribute)
-                                            <div class="single-product-gallery-item" id="slide{{$count}}">
-                                                <a data-lightbox="image-1" data-title="{{$attribute['name']}}"
-                                                   href="{{asset('files/23/Photos/Products/').'/'.$product['manufacturer_key'].'/'.$attribute['image']}}">
-                                                    <img class="img-responsive" alt="{{$attribute['name']}}"
-                                                         src="{{asset('files/23/Photos/Products/').'/'.$product['manufacturer_key'].'/'.$attribute['image']}}"/>
-                                                </a>
-                                            </div><!-- /.single-product-gallery-item -->
-                                            @php
-                                                $count++
-                                            @endphp
+                                            @if(isset($attribute['image']) || ($attribute['image'] != "no_image.png"))
+                                                <div class="single-product-gallery-item" id="slide{{$count}}">
+                                                    <a data-lightbox="image-1" data-title="{{$attribute['name']}}"
+                                                       href="{{asset('files/23/Photos/Products/').'/'.$product['manufacturer_key'].'/'.$attribute['image']}}">
+                                                        <img class="img-responsive" alt="{{$attribute['name']}}"
+                                                             src="{{asset('files/23/Photos/Products/').'/'.$product['manufacturer_key'].'/'.$attribute['image']}}"/>
+                                                    </a>
+                                                </div><!-- /.single-product-gallery-item -->
+                                                @php
+                                                    $count++
+                                                @endphp
+                                            @endif
                                         @endforeach
                                     </div><!-- /.single-product-slider -->
                                 </div>
@@ -156,6 +176,27 @@
                             <div class="product-info">
                                 <div class="product_summery">
                                     <div class="single_pricing">
+                                        @if( $product['product_features'] || $product['product_item_size'] || $product['print_area'] || $product['decoration_areas'] || $product['dimensions'])
+                                            <div class="single_pricing_heading pro_info">
+                                                <h2 class="single_product_heading">Info</h2>
+                                                @if($product['product_features'])
+                                                    <p>{{$product['product_features']}}</p>
+                                                @endif
+                                                @if($product['product_item_size'])
+                                                    <p>{{$product['product_item_size']}}</p>
+                                                @endif
+                                                @if($product['dimensions'])
+                                                    <p><strong>Dimensions: </strong> {{$product['dimensions']}}</p>
+                                                @endif
+                                                @if($product['decoration_areas'])
+                                                    <p><strong>Decoration
+                                                            Area: </strong> {{$product['decoration_areas']}}</p>
+                                                @endif
+                                                @if($product['print_area'])
+                                                    <p><strong>Print Area: </strong> {{$product['print_area']}}</p>
+                                                @endif
+                                            </div>
+                                        @endif
                                         <div class="single_pricing_heading">
                                             <h2 class="single_product_heading">Unbranded Price</h2>
                                         </div>
@@ -439,8 +480,13 @@
                                                         <div class="product-image">
                                                             <div class="image">
                                                                 <a href="{{route('product_show',$product['slug'])}}">
-                                                                    <img src="{{asset('files/23/Photos/Products/').'/'.$product['manufacturer_key'].'/'.$product['main_image']}}"
-                                                                         alt="{{$product['name']}}">
+                                                                    @if (isset($product['main_image']) && $product['main_image'] != "no_image.png")
+                                                                        <img src="{{asset('files/23/Photos/Products/').'/'.$product['manufacturer_key'].'/'.$product['main_image']}}"
+                                                                             alt="{{$product['name']}}">
+                                                                    @else
+                                                                        <img src="{{asset('files/23/Photos/no_image.png')}}"
+                                                                             alt="{{$product['name']}}">
+                                                                    @endif
                                                                 </a>
                                                             </div>
                                                         </div>
